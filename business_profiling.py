@@ -7,6 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.service import Service
 from time import sleep
 
 
@@ -27,7 +28,7 @@ class WebScraper:
 
         options = Options()
         # options.add_argument("--headless")
-        self.driver = webdriver.Chrome(service='chromedriver', options=options)
+        self.driver = webdriver.Chrome(service=Service('chromedriver'), options=options)
         self.driver.get(link)
 
         self.wait = WebDriverWait(self.driver, 10)
