@@ -28,7 +28,7 @@ class WebScraper:
 
         options = webdriver.ChromeOptions()
         # options.add_argument("--headless")
-        self.driver = webdriver.Chrome(service=Service('chromedriver'), options=options)
+        self.driver = webdriver.Chrome(service=Service('./chromedriver'), options=options)
         self.driver.get(link)
 
         self.wait = WebDriverWait(self.driver, 10)
