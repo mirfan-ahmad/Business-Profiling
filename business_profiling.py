@@ -3,7 +3,6 @@ import pandas as pd
 import random
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-# from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -27,8 +26,8 @@ class WebScraper:
         link = f'https://www.google.com/localservices/prolist?g2lbs=AIQllVyNk2Pbqnph9O2BVURId3NUsNUzfgDLCKbpLww_PzyAgLK3hD-UysZ1_-oPaC3Rtu7bmcdKTQd3Qq5FwsvUTCe-LQAGbQt8u-mq0xyGbl3SBhdeR-w%3D&hl=en-PK&gl=pk&ssta=1&oq=salon%20in%20usa&src=2&sa=X&q={query}&ved=0&scp=Cg9nY2lkOnVuaXZlcnNpdHkqClVuaXZlcnNpdHk%3D'
 
         options = webdriver.ChromeOptions()
-        # options.add_argument("--headless")
-        self.driver = webdriver.Chrome(service=Service('./chromedriver'), options=options)
+        service = Service('./chromedriver/chromedriver')
+        self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.get(link)
 
         self.wait = WebDriverWait(self.driver, 10)
