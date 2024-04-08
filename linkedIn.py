@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 import streamlit as st
 import pandas as pd
 
@@ -11,9 +11,10 @@ class LinkedIn():
         self.main()
 
     def start_driver(self):
-        options = Options()
+        options = webdriver.ChromeOptions()
         options.add_argument("--headless")
-        self.driver = webdriver.Chrome(options=options)
+        service = Service('./chromedriver/chromedriver')
+        self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.minimize_window()
         self.driver.implicitly_wait(10)
 
