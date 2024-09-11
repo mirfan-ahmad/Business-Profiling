@@ -1,2 +1,6 @@
+numpy
 pandas
 selenium
+streamlit
+anticaptchaofficial
+webdriver_manager
